@@ -1,0 +1,12 @@
+@if (product(); as p) {
+  <div>
+    <h2>{{ p.name }}</h2>
+    <p>{{ p.description }}</p>
+    <p>Category: {{ p.category }}</p>
+    <p>Price: ${{ p.price }}</p>
+  </div>
+} @else if (notFound()) {
+  <p>Product not found.</p>
+} @else {
+  <p>Loading product...</p>
+}

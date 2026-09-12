@@ -1,13 +1,14 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { Product, ProductModel } from '../services/product';
 
 @Component({
-  imports: [],
+  imports: [RouterLink],
   selector: 'app-product-list',
   styleUrl: './product-list.css',
   templateUrl: './product-list.html',
 })
-export class ProductList {
+export class ProductList implements OnInit {
   private productService = inject(Product);
   products = signal<ProductModel[]>([]);
 

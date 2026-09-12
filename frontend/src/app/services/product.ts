@@ -17,4 +17,8 @@ export class Product {
   getProducts() {
     return this.http.get<ProductModel[]>(this.apiUrl);
   }
+
+  getProduct(id: number) {
+    return this.http.get<ProductModel>(`${this.apiUrl}/${id}`);
+  }
 }
