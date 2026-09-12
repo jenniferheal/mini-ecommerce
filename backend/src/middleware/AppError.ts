@@ -27,7 +27,9 @@ export function conflict(message: string = 'Conflict'): AppError {
   return new AppError(message, 409);
 }
 
-export function unprocessable(message: string = 'Unprocessable entity'): AppError {
+export function unprocessable(
+  message: string = 'Unprocessable entity',
+): AppError {
   return new AppError(message, 422);
 }
 
