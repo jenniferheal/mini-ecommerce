@@ -52,3 +52,17 @@ db.exec(`
     FOREIGN KEY (product_id) REFERENCES products(id)
   )
 `);
+
+// Insert samples in tables
+
+const categoryCount = db.prepare('SELECT COUNT(*) AS count FROM categories').get() as { count: number };
+
+if (categoryCount.count === 0) {
+  db.prepare(`INSERT INTO categories (name) VALUES (?)`).run('Electronics');
+  db.prepare(`INSERT INTO categories (name) VALUES (?)`).run('Books');
+
+  db.prepare(`INSERT INTO products (name, price, description, category_id) VALUES (?, ?, ?, ?)`)
+    .run('Laptop', 999.99, 'A fast laptop', 1);
+  db.prepare(`INSERT INTO products (name, price, description, category_id) VALUES (?, ?, ?, ?)`)
+    .run('Novel', 14.99, 'A great book', 2);
+}
