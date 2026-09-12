@@ -1,5 +1,6 @@
 import 'dotenv/config';
 import express from 'express';
+import cors from 'cors';
 import './database';
 import authRouter from './routes/auth';
 import usersRouter from './routes/users';
@@ -10,6 +11,7 @@ import { errorHandler } from './middleware/errorHandler';
 const app = express();
 const port = 3000;
 
+app.use(cors({ origin: 'http://localhost:4200' }));
 app.use(express.json());
 
 app.get('/', (req, res) => {
@@ -20,6 +22,7 @@ app.use('/auth', authRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
 app.use('/orders', ordersRouter);
+
 app.use(errorHandler);
 
 app.listen(port, () => {
