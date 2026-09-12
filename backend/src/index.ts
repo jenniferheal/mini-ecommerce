@@ -1,10 +1,10 @@
 import 'dotenv/config';
 import express from 'express';
 import './database';
-import productsRouter from './routes/products';
-import usersRouter from './routes/users';
 import authRouter from './routes/auth';
-import { requireAuth, AuthRequest } from './middleware/auth';
+import usersRouter from './routes/users';
+import productsRouter from './routes/products';
+import ordersRouter from './routes/orders';
 import { errorHandler } from './middleware/errorHandler';
 
 const app = express();
@@ -17,8 +17,9 @@ app.get('/', (req, res) => {
 });
 
 app.use('/auth', authRouter);
-app.use('/products', productsRouter);
 app.use('/users', usersRouter);
+app.use('/products', productsRouter);
+app.use('/orders', ordersRouter);
 app.use(errorHandler);
 
 app.listen(port, () => {
