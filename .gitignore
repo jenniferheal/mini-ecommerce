@@ -3,3 +3,4 @@ backend/dist/
 backend/*.db
 frontend/node_modules/
 frontend/dist/
+backend/.env
