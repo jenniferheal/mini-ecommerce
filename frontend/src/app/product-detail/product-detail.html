@@ -4,6 +4,7 @@
     <p>{{ p.description }}</p>
     <p>Category: {{ p.category }}</p>
     <p>Price: ${{ p.price }}</p>
+    <button (click)="addToCart()">Add to Cart</button>
   </div>
 } @else if (notFound()) {
   <p>Product not found.</p>

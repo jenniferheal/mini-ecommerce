@@ -10,7 +10,7 @@ export interface ProductModel {
 }
 
 @Service()
-export class Product {
+export class ProductService {
   private http = inject(HttpClient);
   private apiUrl = 'http://localhost:3000/products';
 
