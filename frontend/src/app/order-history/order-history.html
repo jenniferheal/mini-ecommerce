@@ -1,0 +1,16 @@
+<h2>Order History</h2>
+
+@if (orders().length === 0) {
+  <p>You have no past orders.</p>
+} @else {
+  @for (order of orders(); track order.order_id) {
+    <div>
+      <h3>Order #{{ order.order_id }} — {{ order.status }}</h3>
+      <p>Placed on: {{ order.created_at }}</p>
+
+      @for (item of order.items; track item.product_name) {
+        <p>{{ item.quantity }}x {{ item.product_name }} — ${{ item.price }}</p>
+      }
+    </div>
+  }
+}

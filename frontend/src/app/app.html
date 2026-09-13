@@ -6,6 +6,7 @@
     <a routerLink="/register">Register</a>
     <a routerLink="/login">Login</a>
   } @else {
+    <a routerLink="/orders">Order History</a>
     <button (click)="authService.logout()">Logout</button>
   }
 </nav>

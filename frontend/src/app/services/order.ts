@@ -11,6 +11,15 @@ interface PlaceOrderResponse {
   items: { product_id: number; quantity: number; price: number }[];
 }
 
+export interface OrderHistoryRow {
+  order_id: number;
+  created_at: string;
+  status: string;
+  product_name: string;
+  quantity: number;
+  price: number;
+}
+
 @Service()
 export class OrderService {
   private http = inject(HttpClient);
@@ -25,5 +34,9 @@ export class OrderService {
     };
 
     return this.http.post<PlaceOrderResponse>(this.apiUrl, payload);
+  }
+
+  getOrderHistory() {
+    return this.http.get<OrderHistoryRow[]>(this.apiUrl);
   }
 }
