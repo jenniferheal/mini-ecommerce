@@ -21,4 +21,8 @@ export class CartService {
       this.items.set([...currentItems, { product, quantity }]);
     }
   }
+
+  clearCart() {
+    this.items.set([]);
+  }
 }

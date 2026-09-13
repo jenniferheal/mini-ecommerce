@@ -11,4 +11,10 @@
       <p>Subtotal: ${{ item.product.price * item.quantity }}</p>
     </div>
   }
+
+  <button (click)="checkout()">Checkout</button>
+}
+
+@if (errorMessage()) {
+  <p>{{ errorMessage() }}</p>
 }
